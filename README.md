@@ -19,10 +19,22 @@ At program.cs:
 - Add services to container after line "// Add services to the container."
 - Add repositories to services after lines "// Add repositories to services"
 
+Documentation
+The project enabled documentation on file webapiProject.csproj with the node:
+<Project>
+  <PropertyGroup>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+  </PropertyGroup>
+</Project>
+Will generates warning on definitions without documentation.
+
 Libraries to use:
 - Automapper
 program.cs:
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+  This lines uses injection for automapper
+  builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+Core.Mapper.EntityMapper.cs:
+  Includes configuration to map between entities and models.
 
 -Swagger. Enables api documentation
 program.cs:
