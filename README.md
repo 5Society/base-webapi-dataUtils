@@ -1,20 +1,21 @@
-# base-webapi
+# BASE-WEBAPI PROJECT
 Base project to create a webapi netcore
 
 Folder Structure:
-- Controllers
-- Core
-  - Helper
-  - Interfaces
-  - Mapper
-  - Models
-  - Services
-- DataAccess
-  - Entities
-  - Repositories
-  - Interfaces
+* Controllers
+* Core
+  * Helper
+  * Interfaces
+  * Mapper
+  * Models
+  * Services
+* DataAccess
+  * Entities
+  * Repositories
+  * Interfaces
 
-To use this template:
+## To use this template:
+
 At program.cs:
 - Add services to container after line "// Add services to the container."
 - Add repositories to services after lines "// Add repositories to services"
@@ -28,15 +29,16 @@ The project enabled documentation on file webapiProject.csproj with the node:
 </Project>
 Will generates warning on definitions without documentation.
 
-Libraries to use:
-- Automapper
+## Libraries to use:
+### Automapper
 program.cs:
   This lines uses injection for automapper
   builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 Core.Mapper.EntityMapper.cs:
   Includes configuration to map between entities and models.
 
-- Swagger. Enables api documentation
+### Swagger. 
+Enables api documentation
 
 program.cs:
 
