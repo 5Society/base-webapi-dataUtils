@@ -11,7 +11,8 @@ namespace webapiProject.Core.Services
     public class ExampleService : IExampleService
     {
         private readonly IMapper _mapper;
-        public ExampleService(IMapper mapper) { 
+        public ExampleService(IMapper mapper)
+        {
             _mapper = mapper;
         }
         public IEnumerable<ExampleModel> GetAll(int page, int pageSize)
@@ -28,12 +29,13 @@ namespace webapiProject.Core.Services
         public ExampleModel? GetById(int id)
         {
             //Gets entity 
-            ExampleEntity entity = new ExampleEntity { 
+            ExampleEntity entity = new ExampleEntity
+            {
                 Id = id,
-                DateExample= DateTime.Now.AddDays(id),
-                IntExample = Random.Shared.Next(-20,55),    
-                StringExample= "Example Sumary",
-                StringExampleMax= String.Empty,
+                DateExample = DateTime.Now.AddDays(id),
+                IntExample = Random.Shared.Next(-20, 55),
+                StringExample = "Example Sumary",
+                StringExampleMax = String.Empty,
             };
 
             return _mapper.Map<ExampleModel>(entity);
@@ -45,10 +47,10 @@ namespace webapiProject.Core.Services
             ExampleEntity entity = _mapper.Map<ExampleEntity>(model);
             entity.Id = 1;
             entity.DateExample = DateTime.Now.AddDays(1);
-            
+
             return _mapper.Map<ExampleModel>(entity);
         }
-    }
+
 
         public async Task<bool> Update(int id, ExampleUpdateModel model)
         {
