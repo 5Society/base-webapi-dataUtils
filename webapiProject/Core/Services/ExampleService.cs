@@ -28,6 +28,7 @@ namespace webapiProject.Core.Services
 
         public ExampleModel? GetById(int id)
         {
+            if (id < 0) return null;
             //Gets entity 
             ExampleEntity entity = new ExampleEntity
             {
@@ -43,6 +44,8 @@ namespace webapiProject.Core.Services
 
         public async Task<ExampleModel?> Create(ExampleCreateModel model)
         {
+            if (model.IntExample < 0) return null;
+            if (String.IsNullOrEmpty(model.StringExample)) return null;
             //Gets entity 
             ExampleEntity entity = _mapper.Map<ExampleEntity>(model);
             entity.Id = 1;
@@ -54,12 +57,14 @@ namespace webapiProject.Core.Services
 
         public async Task<bool> Update(int id, ExampleUpdateModel model)
         {
-            throw new NotImplementedException();
+            if (id < 0) throw new NotImplementedException();
+            if (id!= model.Id) return false;
+            return true;
         }
 
-        public Task<bool> Delete(int id)
+        public async Task<bool> Delete(int id)
         {
-            throw new NotImplementedException();
+            return (id > 0);
         }
 
     }
