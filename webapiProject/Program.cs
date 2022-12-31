@@ -40,8 +40,8 @@ builder.Services.AddScoped<IExampleService, ExampleService>();
 //builder.Services.AddScoped<IExampleRepository, Examplerepository>();
 //builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-//Configure automapper
-//builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+//Configure automapper dependency injection
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
 

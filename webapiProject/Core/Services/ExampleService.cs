@@ -1,5 +1,7 @@
-﻿using webapiProject.Core.Interfaces;
+﻿using AutoMapper;
+using webapiProject.Core.Interfaces;
 using webapiProject.Core.Models;
+using webapiProject.DataAccess.Entities;
 
 namespace webapiProject.Core.Services
 {
@@ -8,7 +10,10 @@ namespace webapiProject.Core.Services
     /// </summary>
     public class ExampleService : IExampleService
     {
-     
+        private readonly IMapper _mapper;
+        public ExampleService(IMapper mapper) { 
+            _mapper = mapper;
+        }
         public IEnumerable<ExampleModel> GetAll(int page, int pageSize)
         {
             return Enumerable.Range(1, pageSize).Select(index => new ExampleModel
@@ -22,13 +27,16 @@ namespace webapiProject.Core.Services
 
         public ExampleModel? GetById(int id)
         {
-            return new ExampleModel
-            {
+            //Gets entity 
+            ExampleEntity entity = new ExampleEntity { 
                 Id = id,
-                DateExample = DateTime.Now.AddDays(id),
-                IntExample = Random.Shared.Next(-20, 55),
-                StringExample = "Example Summary"
+                DateExample= DateTime.Now.AddDays(id),
+                IntExample = Random.Shared.Next(-20,55),    
+                StringExample= "Example Sumary",
+                StringExampleMax= String.Empty,
             };
+
+            return _mapper.Map<ExampleModel>(entity);
         }
 
         public async Task<ExampleModel?> Create(ExampleCreateModel model)
