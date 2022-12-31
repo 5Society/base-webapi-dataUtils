@@ -36,8 +36,10 @@ program.cs:
 Core.Mapper.EntityMapper.cs:
   Includes configuration to map between entities and models.
 
--Swagger. Enables api documentation
+- Swagger. Enables api documentation
+
 program.cs:
+
 builder.Services.AddSwaggerGen(c =>
 {
     //The generated Swagger JSON file will have these properties.
@@ -59,5 +61,7 @@ builder.Services.AddSwaggerGen(c =>
     //... and tell Swagger to use those XML comments.
     c.IncludeXmlComments(xmlPath);    //You can remove this line if you want to hide the documentation
 });
+
+
 
 
