@@ -20,7 +20,7 @@ At program.cs:
 - Add services to container after line "// Add services to the container."
 - Add repositories to services after lines "// Add repositories to services"
 
-Documentation
+## Documentation
 The project enabled documentation on file webapiProject.csproj with the node:
 <Project>
   <PropertyGroup>
@@ -28,6 +28,9 @@ The project enabled documentation on file webapiProject.csproj with the node:
   </PropertyGroup>
 </Project>
 Will generates warning on definitions without documentation.
+
+## Unit test with NUnit
+Project webapiTestProject contains a test example.
 
 ## Libraries to use:
 ### Automapper
