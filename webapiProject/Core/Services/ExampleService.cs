@@ -41,8 +41,14 @@ namespace webapiProject.Core.Services
 
         public async Task<ExampleModel?> Create(ExampleCreateModel model)
         {
-            throw new NotImplementedException();
+            //Gets entity 
+            ExampleEntity entity = _mapper.Map<ExampleEntity>(model);
+            entity.Id = 1;
+            entity.DateExample = DateTime.Now.AddDays(1);
+            
+            return _mapper.Map<ExampleModel>(entity);
         }
+    }
 
         public async Task<bool> Update(int id, ExampleUpdateModel model)
         {
