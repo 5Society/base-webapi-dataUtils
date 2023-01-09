@@ -1,9 +1,13 @@
+using API_JF_Data_Utils_Example.DataAccess;
 using JF.Utils.Data;
+using JF.Utils.Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using webapiProject.Core.Interfaces;
 using webapiProject.Core.Services;
+using webapiProject.DataAccess.Interfaces;
+using webapiProject.DataAccess.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -44,9 +48,9 @@ builder.Services.AddDbContext<JFContext>(options => { options.UseInMemoryDatabas
 // Add services to the container.
 builder.Services.AddScoped<IExampleService, ExampleService>();
 
-// Add repositories to services
-//builder.Services.AddScoped<IExampleRepository, Examplerepository>();
-//builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+// Add non generic repositories
+builder.Services.AddScoped<IExampleRepository, ExampleRepository>();
+builder.Services.AddScoped<IUnitOfWork, ApplicationContext>();
 
 //Configure automapper dependency injection
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

@@ -1,5 +1,8 @@
-﻿namespace webapiProject.DataAccess.Interfaces;
+﻿using JF.Utils.Data.Interfaces;
+using webapiProject.DataAccess.Entities;
 
-public interface IExampleRepository
+namespace webapiProject.DataAccess.Interfaces;
+
+public interface IExampleRepository : IRepositoryBase<ExampleEntity>
 {
 }
