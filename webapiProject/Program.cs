@@ -1,3 +1,5 @@
+using JF.Utils.Data;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using webapiProject.Core.Interfaces;
@@ -32,6 +34,12 @@ builder.Services.AddSwaggerGen(c =>
     //... and tell Swagger to use those XML comments.
     c.IncludeXmlComments(xmlPath);
 });
+
+//Add dbContext
+builder.Services.AddDbContext<JFContext>(options => { options.UseInMemoryDatabase("BaseProject"); });
+//builder.Services.AddDbContext<JFContext>(options => {
+//    options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=BaseProject;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+//});
 
 // Add services to the container.
 builder.Services.AddScoped<IExampleService, ExampleService>();

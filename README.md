@@ -17,6 +17,9 @@ Folder Structure:
 ## To use this template:
 
 At program.cs:
+- Define Database to use after line "//Add dbContext"
+  By default the project uses EntityframeworkCore.InMemory, you can uninstall and use other context.
+  The project has dependency to EntityframeworkCore.SqlServer, you can uninstall and use other context.
 - Add services to container after line "// Add services to the container."
 - Add repositories to services after lines "// Add repositories to services"
 
