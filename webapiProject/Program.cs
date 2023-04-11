@@ -42,7 +42,9 @@ builder.Services.AddSwaggerGen(c =>
 //Add dbContext
 builder.Services.AddDbContext<JFContext>(options => { options.UseInMemoryDatabase("BaseProject"); });
 //builder.Services.AddDbContext<JFContext>(options => {
-//    options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=BaseProject;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+//    options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=BaseProject;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+//    .LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name }, Microsoft.Extensions.Logging.LogLevel.Information)
+//    .EnableSensitiveDataLogging();
 //});
 
 // Add services to the container.
